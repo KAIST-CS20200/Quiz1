@@ -21,7 +21,7 @@ type TestClass () =
     ExpectedException(typeof<OverflowException>)>]
   member _.``Test2-2`` () =
     let maxInt = System.Int32.MaxValue
-    let result = Math.safeSub -1 maxInt
+    let result = Math.safeSub -2 maxInt
     Assert.Fail "Expected OverflowException"
 
   [<TestMethod; TestCategory "3">]
