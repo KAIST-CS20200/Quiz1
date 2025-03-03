@@ -9,13 +9,13 @@ type TestClass () =
   [<TestMethod; TestCategory "1">]
   member _.``Test1`` () =
     let result = Math.safeSub -1 1
-    Assert.AreEqual (-2, result)
+    Assert.AreEqual<int> (-2, result)
 
   [<TestMethod; TestCategory "2">]
   member _.``Test2-1`` () =
     let maxInt = System.Int32.MaxValue
     let result = Math.safeSub maxInt maxInt
-    Assert.AreEqual (0, result)
+    Assert.AreEqual<int> (0, result)
 
   [<TestMethod; TestCategory "2";
     ExpectedException(typeof<OverflowException>)>]
@@ -28,7 +28,7 @@ type TestClass () =
   member _.``Test3-1`` () =
     let minInt = System.Int32.MinValue
     let result = Math.safeSub minInt 0
-    Assert.AreEqual (minInt, result)
+    Assert.AreEqual<int> (minInt, result)
 
   [<TestMethod; TestCategory "3";
     ExpectedException(typeof<OverflowException>)>]
